@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trivia Gym — Practice Before Quiz Night</title>
-  <meta name="description" content="Trivia Gym is where serious trivia players practice. Train recall with curated clues, Self-Test or Voice grading, and quick sessions—before quiz night." />
+  <meta name="description" content="Trivia Gym is a practice gym for trivia. Rehearse recall before quiz night, bar trivia, or any competitive format." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,9 +12,8 @@
     <header class="hero">
       <p class="eyebrow">Where trivia players practice</p>
       <h1>Trivia Gym</h1>
-      <p class="lede">
-        Not another trivia game.<br />
-        The practice app serious players use before quiz night.
+      <p class="lede" id="slide-lede">
+        Trivia Gym is a practice gym for trivia. It is not a live quiz or a game show recreation.
       </p>
       <p class="cta-row">
         <a class="btn" href="https://apps.apple.com/search?term=Trivia%20Gym">Get on the App Store</a>
@@ -22,86 +21,23 @@
       </p>
     </header>
 
-    <section class="shot-block" aria-label="Home">
-      <div class="shot-copy">
-        <h2>Train your trivia recall</h2>
-        <p>Practice like athletes train — one question at a time. Free starter pack, no ads, no multiplayer noise.</p>
+    <section class="carousel" aria-label="App screenshots">
+      <div class="carousel-stage">
+        <button type="button" class="nav prev" id="prev-btn" aria-label="Previous screenshot">‹</button>
+        <figure class="phone main-shot">
+          <img id="main-image" src="screenshots/iphone/Trivia%20Gym%20App%20-%20Home.png" alt="" width="390" height="844" />
+        </figure>
+        <button type="button" class="nav next" id="next-btn" aria-label="Next screenshot">›</button>
       </div>
-      <figure class="phone">
-        <img
-          src="screenshots/iphone/Trivia%20Gym%20App%20-%20Home.png"
-          alt="Trivia Gym home screen with practice options"
-          width="390"
-          height="844"
-          loading="eager"
-        />
-      </figure>
-    </section>
 
-    <section class="shot-block reverse" aria-label="Self-Test mode">
-      <div class="shot-copy">
-        <h2>Self-Test mode</h2>
-        <p>Read the clue. Reveal the answer. Mark Got It or Missed. Honest grading builds real recall.</p>
+      <div class="slide-copy">
+        <h2 id="slide-title">Trivia Prep, Not a Quiz Show</h2>
+        <p id="slide-body">
+          Use it to rehearse recall, build category strength, and track what you know before quiz night, bar trivia, or any competitive format.
+        </p>
       </div>
-      <div class="phone-pair">
-        <figure class="phone">
-          <img
-            src="screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Self%20Test%20Mode%20Question.png"
-            alt="Self-Test mode showing a trivia question"
-            width="390"
-            height="844"
-            loading="lazy"
-          />
-        </figure>
-        <figure class="phone">
-          <img
-            src="screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Self%20Test%20Mode%20Answer.png"
-            alt="Self-Test mode after revealing the answer"
-            width="390"
-            height="844"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-    </section>
 
-    <section class="shot-block" aria-label="Voice mode">
-      <div class="shot-copy">
-        <h2>Voice practice</h2>
-        <p>Speak your answer. Instantly grade yourself. Say “pass” to skip or “stop” to end the session.</p>
-      </div>
-      <div class="phone-pair">
-        <figure class="phone">
-          <img
-            src="screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Voice%20Mode%20Question.png"
-            alt="Voice mode listening for an answer"
-            width="390"
-            height="844"
-            loading="lazy"
-          />
-        </figure>
-        <figure class="phone">
-          <img
-            src="screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Voice%20Mode%20Answer.png"
-            alt="Voice mode after grading an answer"
-            width="390"
-            height="844"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-    </section>
-
-    <section class="features">
-      <h2>Built for trivia buffs</h2>
-      <ul>
-        <li>500 curated starter questions</li>
-        <li>Self-Test and Voice study modes</li>
-        <li>Review misses until they stick</li>
-        <li>Quick sessions: 10, 30, 50, or unlimited</li>
-        <li>No ads. No timers racing you. Just practice.</li>
-      </ul>
-      <p class="meta">Category packs coming soon.</p>
+      <div class="thumbs" id="thumbs" role="tablist" aria-label="Choose a screenshot"></div>
     </section>
 
     <footer class="marketing-footer">
@@ -115,5 +51,115 @@
       </p>
     </footer>
   </main>
+
+  <script>
+    const slides = [
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Home.png",
+        alt: "Trivia Gym home screen",
+        title: "Trivia Prep, Not a Quiz Show",
+        lede: "Trivia Gym is a practice gym for trivia. It is not a live quiz or a game show recreation.",
+        body: "Use it to rehearse recall, build category strength, and track what you know before quiz night, bar trivia, or any competitive format."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Self%20Test%20Mode%20Question.png",
+        alt: "Self-Test question with category",
+        title: "Read the Category First",
+        lede: "Every question sits under a category title. That title is part of the clue — it frames what kind of answer to look for.",
+        body: "Before you dig into the question text, glance at the category. It can narrow the topic, hint at wordplay, or tell you the answer shape. Strong players treat the category as information, not decoration."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Self%20Test%20Mode%20Answer.png",
+        alt: "Self-Test answer reveal",
+        title: "Self-Test Mode",
+        lede: "Read the question, think of your answer, then wait for the reveal timer.",
+        body: "After the answer appears, mark Got It or Missed. You grade yourself — honest marking is what makes practice useful. You can change the reveal delay in Settings (default 5 seconds)."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Voice%20Mode%20Question.png",
+        alt: "Voice Answer mode listening",
+        title: "Voice Answer Mode",
+        lede: "Speak your answer out loud. A short pause after you finish talking submits what you said for grading.",
+        body: "Thinking out loud is fine — the app uses the question and category to pull your answer out of the transcript before scoring. Say “Pass” or “Skip” to skip, or “Stop” or “End” to finish the session."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Game%20Voice%20Mode%20Answer.png",
+        alt: "Voice Answer mode graded",
+        title: "Voice Answer Mode",
+        lede: "Speak your answer out loud. A short pause after you finish talking submits what you said for grading.",
+        body: "Adjust the pause length in Settings (default 1.5 seconds)."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Settings.png",
+        alt: "Trivia Gym settings",
+        title: "Timers & Practice Length",
+        lede: "In Settings you can tune how practice feels.",
+        body: "Self-Test reveal delay, Voice pause, Quick Practice length (10, 30, 50, or unlimited), and question pool (hide attempted, repeat misses, or show everything)."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20How%20to%20play.png",
+        alt: "How to Play",
+        title: "Free Tier & Coming Packs",
+        lede: "The free tier includes 500 starter questions, both study modes, and no ads.",
+        body: "Larger category question packs are coming soon as optional one-time purchases. They will expand your library and unlock category practice — no subscriptions and no ads."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Self%20test%20mode.png",
+        alt: "Self-Test mode preference",
+        title: "Self-Test Mode",
+        lede: "Read the question, think of your answer, then wait for the reveal timer.",
+        body: "After the answer appears, mark Got It or Missed. You grade yourself — honest marking is what makes practice useful."
+      },
+      {
+        src: "screenshots/iphone/Trivia%20Gym%20App%20-%20Voice%20mode.png",
+        alt: "Voice mode preference",
+        title: "Voice Answer Mode",
+        lede: "Speak your answer out loud. A short pause after you finish talking submits what you said for grading.",
+        body: "Voice commands: “Pass” or “Skip” — skip this question. “Stop” or “End” — end the session."
+      }
+    ];
+
+    let index = 0;
+    const mainImage = document.getElementById("main-image");
+    const titleEl = document.getElementById("slide-title");
+    const bodyEl = document.getElementById("slide-body");
+    const ledeEl = document.getElementById("slide-lede");
+    const thumbs = document.getElementById("thumbs");
+
+    function renderThumbs() {
+      thumbs.innerHTML = "";
+      slides.forEach((slide, i) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "thumb" + (i === index ? " active" : "");
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-selected", i === index ? "true" : "false");
+        btn.setAttribute("aria-label", slide.title);
+        btn.innerHTML = `<img src="${slide.src}" alt="" />`;
+        btn.addEventListener("click", () => show(i));
+        thumbs.appendChild(btn);
+      });
+    }
+
+    function show(i) {
+      index = (i + slides.length) % slides.length;
+      const slide = slides[index];
+      mainImage.src = slide.src;
+      mainImage.alt = slide.alt;
+      titleEl.textContent = slide.title;
+      bodyEl.textContent = slide.body;
+      ledeEl.textContent = slide.lede;
+      renderThumbs();
+    }
+
+    document.getElementById("prev-btn").addEventListener("click", () => show(index - 1));
+    document.getElementById("next-btn").addEventListener("click", () => show(index + 1));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") show(index - 1);
+      if (e.key === "ArrowRight") show(index + 1);
+    });
+
+    show(0);
+  </script>
 </body>
 </html>

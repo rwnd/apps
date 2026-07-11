@@ -12,6 +12,7 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: radial-gradient(1200px 600px at 50% -10%, #1a3330 0%, var(--bg) 55%);
   color: var(--text);
@@ -28,6 +29,7 @@ body {
   color: var(--muted);
   font-size: 0.9rem;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 h1 {
@@ -57,18 +59,20 @@ ul, ol { padding-left: 1.2rem; }
 
 li { margin: 0.35rem 0; }
 
-/* Marketing landing */
-
 .marketing {
-  max-width: 980px;
+  width: min(880px, 100%);
   margin: 0 auto;
   padding: 56px 20px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero {
-  text-align: center;
+  width: 100%;
   max-width: 640px;
-  margin: 0 auto 64px;
+  margin: 0 auto 40px;
 }
 
 .hero h1 {
@@ -78,9 +82,10 @@ li { margin: 0.35rem 0; }
 }
 
 .lede {
-  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  font-size: clamp(1.05rem, 2.4vw, 1.2rem);
   color: var(--muted);
-  margin: 0.75rem 0 1.5rem;
+  margin: 0.75rem auto 1.5rem;
+  max-width: 36rem;
 }
 
 .cta-row {
@@ -101,52 +106,45 @@ li { margin: 0.35rem 0; }
   border-radius: 12px;
 }
 
-.text-link {
-  font-weight: 600;
-}
+.text-link { font-weight: 600; }
 
-.shot-block {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
+.carousel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin: 72px 0;
+  gap: 20px;
 }
 
-@media (min-width: 860px) {
-  .shot-block {
-    grid-template-columns: 1fr 1.1fr;
-    gap: 40px;
-  }
-  .shot-block.reverse {
-    grid-template-columns: 1.1fr 1fr;
-  }
-  .shot-block.reverse .shot-copy {
-    order: 2;
-  }
-  .shot-block.reverse .phone-pair,
-  .shot-block.reverse .phone {
-    order: 1;
-  }
+.carousel-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
 }
 
-.shot-copy h2 {
-  margin-top: 0;
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+.nav {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(18, 26, 24, 0.9);
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.shot-copy p {
-  color: var(--muted);
-  margin: 0.6rem 0 0;
-}
+.nav:hover { border-color: var(--accent); color: var(--accent); }
 
 .phone {
   margin: 0;
-  justify-self: center;
 }
 
-.phone img {
-  width: min(280px, 70vw);
+.phone.main-shot img {
+  width: min(320px, 72vw);
   height: auto;
   border-radius: 28px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
@@ -155,27 +153,52 @@ li { margin: 0.35rem 0; }
   background: #000;
 }
 
-.phone-pair {
+.slide-copy {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.slide-copy h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+}
+
+.slide-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.thumbs {
   display: flex;
-  gap: 16px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 720px;
+  margin-top: 8px;
 }
 
-.phone-pair .phone img {
-  width: min(220px, 42vw);
+.thumb {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
 }
 
-.features {
-  background: rgba(42, 155, 140, 0.08);
-  border: 1px solid rgba(42, 155, 140, 0.25);
-  border-radius: 20px;
-  padding: 28px 24px;
-  margin: 48px 0;
+.thumb img {
+  display: block;
+  width: 56px;
+  height: auto;
 }
 
-.features h2 {
-  margin-top: 0;
+.thumb:hover { opacity: 0.85; }
+
+.thumb.active {
+  opacity: 1;
+  border-color: var(--accent);
 }
 
 .marketing-footer {
@@ -183,4 +206,10 @@ li { margin: 0.35rem 0; }
   color: var(--muted);
   font-size: 0.92rem;
   margin-top: 64px;
+  width: 100%;
+}
+
+@media (max-width: 520px) {
+  .nav { display: none; }
+  .thumb img { width: 48px; }
 }
