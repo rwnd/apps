@@ -71,6 +71,7 @@ li { margin: 0.35rem 0; }
 }
 
 .hero {
+  margin-bottom: 12px;
   width: 100%;
   max-width: 640px;
   margin: 0 auto 28px;
@@ -213,4 +214,13 @@ li { margin: 0.35rem 0; }
 @media (max-width: 520px) {
   .nav { display: none; }
   .thumb img { width: 32px; }
+}
+
+.cta-sep {
+  color: var(--muted);
+  margin: 0 2px;
+}
+
+.cta-row {
+  margin: 0 0 28px;
 }
